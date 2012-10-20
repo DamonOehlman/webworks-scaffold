@@ -13,6 +13,9 @@ var async = require('async'),
 // default the projectname if not set
 config.projectName = config.projectName || path.basename(__dirname);
 
+// add the projectname to the app
+config.app.projectName = config.app.projectName || config.projectName;
+
 // discover the nature of the project through 
 task('discovery', { async: true }, function() {
     var reader = fstream.Reader({
