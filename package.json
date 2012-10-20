@@ -1,0 +1,29 @@
+{
+  "name": "webworks-scaffold",
+  "description": "Webworks Scaffold and Build Helpers",
+  "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
+  "tags": [
+    "blackberry",
+    "webworks"
+  ],
+  "version": "0.1.0",
+  "private": "true",
+  "dependencies": {},
+  "devDependencies": {
+    "async": "0.1.x",
+    "fstream": "0.1.x",
+    "jake": "0.5.x",
+    "node-zip": "0.0.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/DamonOehlman/webworks-scaffolder.git"
+  },
+  "bugs": {
+    "url": "http://github.com/DamonOehlman/webworks-scaffolder/issues"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/jake build"
+  },
+  "contributors": []
+}
