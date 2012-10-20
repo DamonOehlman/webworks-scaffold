@@ -2,6 +2,8 @@
 
 This is a simple scaffold project designed to get you up and running writing a webworks application quickly.  It's a massive work in progress but should assist you getting your code onto the device.
 
+__NOTE:__ This tool has only been proven to work on Mac, and whilst in theory windows support should work. The zip file format cannot be read successfully in windows :/
+
 ## Getting Started
 
 First-grab a copy of this repository, either [download](https://github.com/DamonOehlman/webworks-scaffold/tarball/master) or clone: 
