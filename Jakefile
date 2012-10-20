@@ -20,7 +20,9 @@ var async = require('async'),
 config.projectName = config.projectName || path.basename(__dirname);
 
 // add the projectname to the app
-config.app.projectName = config.app.projectName || config.projectName;
+if (config.app) {
+    config.app.projectName = config.app.projectName || config.projectName;
+}
 
 // discover the nature of the project through 
 task('discovery', { async: true }, function() {
@@ -45,6 +47,9 @@ task('discovery', { async: true }, function() {
 
 task('write-config', ['discovery'], { async: true }, function() {
     var template;
+
+    // if we don't have app config data, then dont attempt to write the config
+    if (! config.app) return complete();
     
     // load the template file
     out('!{bold}writing config');
