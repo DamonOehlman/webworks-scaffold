@@ -5,10 +5,15 @@ var async = require('async'),
     Zip = require('node-zip'),
     out = require('out'),
     config = require('./config.json'),
+    spawn = require('child_process').spawn,
     handlebars = require('handlebars'),
     commandExt = process.platform == 'win32' ? '.bat' : '',
     devToolsPath = path.resolve(config.webworksPath, 'dependencies', 'tools', 'bin'),
     reIgnoreFiles = /^(node_modules|\.DS_Store|Jakefile|template|output|lib|package.json)/,
+    procOpts = {
+        detached: true,
+        stdio: 'inherit'
+    },
     projectFiles = [];
     
 // default the projectname if not set
@@ -81,35 +86,32 @@ task('package', ['write-config', 'discovery'], { async: true }, function() {
 
 task('build', ['package'], { async: true }, function() {
     var args = [
-        path.resolve(config.webworksPath, 'bbwp' + commandExt),
-        path.resolve(config.projectName + '.zip'),
-        '-d',
-        '-o',
-        path.resolve('output')
-    ];
-    
+            path.resolve(config.projectName + '.zip'),
+            '-d',
+            '-o',
+            path.resolve('output')
+        ],
+        proc = spawn(path.resolve(config.webworksPath, 'bbwp' + commandExt), args, procOpts);
+        
     out('!{bold}building bar file');
-    jake.exec(args.join(' '), function() {
-        complete();
-    }, { printStdout: true });
+    proc.on('exit', complete);
 });
 
 task('push', { async: true }, function() {
     var args = [
-        path.resolve(devToolsPath, 'blackberry-deploy' + commandExt),
-        '-installApp',
-        // '-launchApp',
-        '-password',
-        config.devicePass,
-        '-device',
-        config.deviceIP,
-        path.resolve(__dirname, 'output', 'device', config.projectName + '.bar')
-    ];
+            '-installApp',
+            // '-launchApp',
+            '-password',
+            config.devicePass,
+            '-device',
+            config.deviceIP,
+            path.resolve(__dirname, 'output', 'device', config.projectName + '.bar')
+        ],
+        proc = spawn(path.resolve(devToolsPath, 'blackberry-deploy' + commandExt), args, procOpts);
+
     
     out('!{bold}pushing to the device');
-    jake.exec(args.join(' '), function() {
-        complete();
-    }, { printStdout: true });
+    proc.on('exit', complete);
 });
 
 task('default', ['build']);
