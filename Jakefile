@@ -6,6 +6,7 @@ var async = require('async'),
     out = require('out'),
     config = require('./config.json'),
     handlebars = require('handlebars'),
+    commandExt = process.platform == 'win32' ? '.bat' : '',
     devToolsPath = path.resolve(config.webworksPath, 'dependencies', 'tools', 'bin'),
     reIgnoreFiles = /^(node_modules|\.DS_Store|Jakefile|template|output|lib|package.json)/,
     projectFiles = [];
@@ -80,7 +81,7 @@ task('package', ['write-config', 'discovery'], { async: true }, function() {
 
 task('build', ['package'], { async: true }, function() {
     var args = [
-        path.resolve(config.webworksPath, 'bbwp'),
+        path.resolve(config.webworksPath, 'bbwp' + commandExt),
         path.resolve(config.projectName + '.zip'),
         '-d',
         '-o',
@@ -95,7 +96,7 @@ task('build', ['package'], { async: true }, function() {
 
 task('push', { async: true }, function() {
     var args = [
-        path.resolve(devToolsPath, 'blackberry-deploy'),
+        path.resolve(devToolsPath, 'blackberry-deploy' + commandExt),
         '-installApp',
         // '-launchApp',
         '-password',
