@@ -1,10 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets"
         xmlns:rim="http://www.blackberry.com/ns/widgets"
-        version="1.0.0.5" id="helloworld" xml:lang="en">
+        version="2.0.0.0" id="sampleapp">
+
   <author href="http://www.example.com/"
           rim:copyright="Copyright 1998-2012 My Corp">My Corp</author>
-  <name>helloWorld</name>
-  <content src="index.html"/>
+
+  <name>Test Application</name>
+  <description></description>
+
+  <rim:permissions>
+    
+    <rim:permit>access_location_services</rim:permit>
+    
+    <rim:permit>use_camera</rim:permit>
+    
+  </rim:permissions>
+
+  
+  
+  
+
+  <content src="index.html" rim:allowInvokeParams="true"/>
+  <feature id="blackberry.ui.dialog"/>
+
+  
+  <feature id="blackberry.app.orientation">
+    <param name="mode" value="portrait" />
+  </feature>
+  
+
+  <feature id="blackberry.app">
+    
+  </feature>
+  
   <feature id="blackberry.identity" required="true" version="1.0.0.0"/>
+
+  
+
+  
 </widget>

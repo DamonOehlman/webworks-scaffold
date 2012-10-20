@@ -11,8 +11,10 @@
   "dependencies": {},
   "devDependencies": {
     "async": "0.1.x",
+    "handlebars": "1.0.x",
     "fstream": "0.1.x",
-    "node-zip": "0.0.x"
+    "node-zip": "0.0.x",
+    "out": "*"
   },
   "repository": {
     "type": "git",

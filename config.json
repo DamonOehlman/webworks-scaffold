@@ -1,5 +1,12 @@
 {
     "webworksPath": "/development/tools/bb-devtools/webworks",
     "devicePass": "password",
-    "deviceIP": "192.168.0.1"
+    "deviceIP": "10.0.5.62",
+    
+    "app": {
+        "name": "Test Application",
+        "orientation": "portrait",
+        "permissions": ["access_location_services", "use_camera"],
+        "domains": []
+    }
 }

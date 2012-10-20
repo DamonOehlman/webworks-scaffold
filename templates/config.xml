@@ -6,40 +6,44 @@
   <author href="http://www.example.com/"
           rim:copyright="Copyright 1998-2012 My Corp">My Corp</author>
 
-  <name>Sample application</name>
-
-  <description>
-    A sample application to demonstrate some features.
-  </description>
+  <name>{{ name }}</name>
+  <description>{{ description }}</description>
 
   <rim:permissions>
-    <rim:permit>access_shared</rim:permit>
-    <rim:permit>access_location_services</rim:permit>
-    <rim:permit>use_camera</rim:permit>  
+    {{#each permissions}}
+    <rim:permit>{{ this }}</rim:permit>
+    {{/each}}
   </rim:permissions>
 
-  <icon src="icons/icon-150.png"/>
-
-  <rim:splash src="splash-1280x768.png"/>
-  <rim:splash src="splash-768x1280.png"/>
+  {{#each icons}}
+  <icon src="{{this}}"/>
+  {{/each}}
+  
+  {{#each splashes}}
+  <rim:splash src="{{ this }} "/>
+  {{/each }}
 
   <content src="index.html" rim:allowInvokeParams="true"/>
-
   <feature id="blackberry.ui.dialog"/>
 
+  {{#if orientation}}
   <feature id="blackberry.app.orientation">
-    <param name="mode" value="portrait" />
+    <param name="mode" value="{{ orientation }}" />
   </feature>
+  {{/if}}
 
   <feature id="blackberry.app">
-    <param name="backgroundColor" value="0xFFFF0000" />
+    {{#if backgroundColor }}<param name="backgroundColor" value="{{ backgroundColor }}" />{{/if}}
   </feature>
+  
+  <feature id="blackberry.identity" required="true" version="1.0.0.0"/>
 
-  <access uri="http://www.somedomain.com" subdomains="true">
+  {{#each domains}}
+  <access uri="{{ this }}" subdomains="true">
     <feature id="blackberry.app" required="true" version="1.0.0"/>
     <feature id="blackberry.invoke" required="true" version="1.0.0"/>
   </access>
+  {{/each}}
 
-  <license href="http://www.example.com/"/>
-
+  {{#if license }}<license href="{{ license }}"/>{{/if}}
 </widget>
