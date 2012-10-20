@@ -70,7 +70,7 @@ task('build', ['package'], { async: true }, function() {
     }, { printStdout: true });
 });
 
-task('device', ['build'], { async: true }, function() {
+task('push', ['build'], { async: true }, function() {
     var args = [
         path.resolve(devToolsPath, 'blackberry-deploy'),
         '-installApp',

@@ -12,7 +12,6 @@
   "devDependencies": {
     "async": "0.1.x",
     "fstream": "0.1.x",
-    "jake": "0.5.x",
     "node-zip": "0.0.x"
   },
   "repository": {

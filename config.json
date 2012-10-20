@@ -1,5 +1,5 @@
 {
     "webworksPath": "/development/tools/bb-devtools/webworks",
     "devicePass": "password",
-    "deviceIP": "10.0.5.62"
+    "deviceIP": "192.168.0.1"
 }
