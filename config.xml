@@ -7,13 +7,9 @@
           rim:copyright="Copyright 1998-2012 My Corp">My Corp</author>
 
   <name>Test Application</name>
-  <description></description>
+  <description>Test Application is awesome</description>
 
   <rim:permissions>
-    
-    <rim:permit>access_location_services</rim:permit>
-    
-    <rim:permit>use_camera</rim:permit>
     
   </rim:permissions>
 
@@ -24,10 +20,6 @@
   <content src="index.html" rim:allowInvokeParams="true"/>
   <feature id="blackberry.ui.dialog"/>
 
-  
-  <feature id="blackberry.app.orientation">
-    <param name="mode" value="portrait" />
-  </feature>
   
 
   <feature id="blackberry.app">

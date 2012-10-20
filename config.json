@@ -1,30 +1,12 @@
 {
-  "name": "webworks-scaffold",
-  "description": "Webworks Scaffold and Build Helpers",
-  "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
-  "tags": [
-    "blackberry",
-    "webworks"
-  ],
-  "version": "0.1.1",
-  "private": "true",
-  "dependencies": {},
-  "devDependencies": {
-    "async": "0.1.x",
-    "handlebars": "1.0.x",
-    "fstream": "0.1.x",
-    "node-zip": "0.0.x",
-    "out": "*"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/DamonOehlman/webworks-scaffolder.git"
-  },
-  "bugs": {
-    "url": "http://github.com/DamonOehlman/webworks-scaffolder/issues"
-  },
-  "scripts": {
-    "build": "./node_modules/.bin/jake build"
-  },
-  "contributors": []
+    "webworksPath": "/development/tools/bb-devtools/webworks",
+    "devicePass": "password",
+    "deviceIP": "192.168.0.1",
+
+    "app": {
+      "name": "Test Application",
+      "description": "Test Application is awesome",
+      "permissions": [],
+      "domains": []
+    }
 }
