@@ -9,7 +9,7 @@ var async = require('async'),
     handlebars = require('handlebars'),
     commandExt = process.platform == 'win32' ? '.bat' : '',
     devToolsPath = path.resolve(config.webworksPath, 'dependencies', 'tools', 'bin'),
-    reIgnoreFiles = /^(node_modules|\.DS_Store|Jakefile|template|output|lib|package.json)/,
+    reIgnoreFiles = /^(\.git|node_modules|\.DS_Store|Jakefile|template|output|lib|package.json)/,
     procOpts = {
         detached: true,
         stdio: 'inherit'
